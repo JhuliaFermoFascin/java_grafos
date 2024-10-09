@@ -1,7 +1,9 @@
 //criar um package e adicinar isso lá dentro
 import java.io.File;
+import java.util.ArrayList;
 
 import model.header;
+import model.resumoConexoes;
 
 public class App {
     private static boolean verifica_diretorio(){
@@ -9,7 +11,7 @@ public class App {
     }
     private static boolean verifica_arquivo_conig(){
         return new File("C:\\Teste\\Configuracao\\config.txt").isFile();
-    }
+    }   
 
     public static void main(String[] args) throws Exception {
 
@@ -35,7 +37,15 @@ public class App {
 
                         //se a linha for o resumo de conexões
                         else if(linha.startsWith("01")){
-                            ArrayList<resumoConexoes> = new ArrayList<resumoConexoes>();
+                            ArrayList<resumoConexoes> resumoConexoesList = new ArrayList<>();
+
+                            resumoConexoes resumo = new resumoConexoes();
+
+                            resumo.setIdentificadorNoOrigem(linha.substring(2, 4));
+                            resumo.setIdentificadorNoDestino(linha.substring(4, 6));
+
+
+                            resumoConexoesList.add(resumo);
 
                         }
 
