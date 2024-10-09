@@ -1,39 +1,62 @@
 //criar um package e adicinar isso lá dentro
+import java.io.File;
 
 import model.header;
 
-private static boolean verifica_diretorio(){
-   return new File("C:\\Teste").isDirectory &&  new File("C:\\Teste\Configuracao").isDirectory//encontrar um método para verificar se o arquivo existe
-}
-
-private static boolean verifica_caminho(){}
-
-
 public class App {
+    private static boolean verifica_diretorio(){
+        return new File("C:\\Teste").isDirectory() &&  new File("C:\\Teste\\Configuracao").isDirectory();
+    }
+    private static boolean verifica_arquivo_conig(){
+        return new File("C:\\Teste\\Configuracao\\config.txt").isFile();
+    }
+
     public static void main(String[] args) throws Exception {
 
-        verifica_diretorio();
-        verifica_caminho();
+        if(verifica_diretorio()){
+            if(verifica_arquivo_conig()){
+                try{
+                    while(true){
+                        String linha = "000315"; //conseguir ler a primeira linha do arquivo. 000315 é um exemplo, é como se fosse a primeira linha, logo, é necessário achar uma função que consigar ler isso
+                                        
+                        //se a linha for o header
+                        if(linha.startsWith("00")){
+                            if(linha.length() <= 9){
+                                header header = new header();
+                                header.setIdentificador(linha.substring(0,2));
+                                header.setNumeroNos(Integer.parseInt(linha.substring(2,4)));
+                                header.setSomaPesos(Integer.parseInt(linha.substring(4)));
+                            }
+                            else{
+                                //fazer a excessão de tamanho inválido
+                                //remover o arquivo para a pasta de não necessário
+                            }
+                        }
 
-        header header = new header();
-        //1. ler o arquivo txt chamado de rotaNN.txt
-        String linha = "000315";
-        
+                        //se a linha for o resumo de conexões
+                        else if(linha.startsWith("01")){
+                            ArrayList<resumoConexoes> = new ArrayList<resumoConexoes>();
 
-        //se a linha for o header
-        if(linha.startsWith("00")){
-            
-        }
+                        }
 
-        //se a linha for o resumo de conexões
-        else if(linha.startsWith("01")){
+                        //se a linha for o resumo de pesos
+                        else if(linha.startsWith("02")){
 
-        }
-        else if(linha.startsWith("02")){
+                        }
 
-        }
-        else if(linha.startsWith("09")){
+                        //se a linha for trailer
+                        else if(linha.startsWith("09")){
 
+                        }
+                        else{
+                            //lançar excessão e mover o arquivo para a pasta de não processado
+                        }
+                    }
+                }
+                catch(Exception e){
+                    //mover para não processado
+                }
+            }
         }
     }
 }
