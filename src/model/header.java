@@ -1,12 +1,12 @@
 package model;
 
 public class header {
-    private String identificador;
+    private String identificadorHeader;
     private int numeroNos;
     private int somaPesos;
 
-    public String getIdentificador() {
-        return identificador;
+    public String getIdentificadorHeader() {
+        return identificadorHeader;
     }
     public int getNumeroNos() {
         return numeroNos;
@@ -14,8 +14,8 @@ public class header {
     public int getSomaPesos() {
         return somaPesos;
     }
-    public void setIdentificador(String identificador) {
-        this.identificador = identificador;
+    public void setIdentificador(String identificadorHeader) {
+        this.identificadorHeader = identificadorHeader;
     }
     public void setNumeroNos(int numeroNos) {
         this.numeroNos = numeroNos;
