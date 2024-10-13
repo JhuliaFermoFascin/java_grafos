@@ -14,7 +14,7 @@ public class App {
 
     private static boolean verifica_arquivo_conig(){
         return new File("C:\\Teste\\Configuracao\\config.txt").isFile();
-    }
+    }   
 
     private static void processarArquivo(File arquivo) throws IOException {
         // Usando try-with-resources para garantir que o BufferedReader seja fechado
